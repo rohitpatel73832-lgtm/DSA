@@ -33,9 +33,7 @@ class Solution {
             return dp[row][col];
         }
 
-        dp[row][col] = helper(row - 1, col - 1, dp)
-                     + helper(row - 1, col, dp);
-
+        dp[row][col] = helper(row - 1, col - 1, dp) + helper(row - 1, col, dp);
         return dp[row][col];
     }
 

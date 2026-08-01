@@ -23,20 +23,30 @@
 // }
 
 class Solution{
-    public int helper(int i,int j,int[] nums){
+    public int helper(int i,int j,int[] nums,int[][] dp){
         if(i>j){
             return 0;
         }
         if(i==j){
             return nums[i];
         }
-        int takeI=nums[i]-helper(i+1,j,nums);
-        int takeJ=nums[j]-helper(i,j-1,nums);
-        return Math.max(takeI,takeJ);
+        if (dp[i][j] != Integer.MIN_VALUE) {
+            return dp[i][j];
+        }
+        int takeI=nums[i]-helper(i+1,j,nums,dp);
+        int takeJ=nums[j]-helper(i,j-1,nums,dp);
+        return dp[i][j]= Math.max(takeI,takeJ);
     }
     public boolean predictTheWinner(int[] nums){
         int n=nums.length;
-        return helper(0,n-1,nums)>=0;
+        int[][] dp= new int[n][n];
+        for(int i=0; i<n; i++){
+            for(int j=0; j<n; j++){
+                dp[i][j]=Integer.MIN_VALUE;
+            }
+        }
+        
+        return helper(0,n-1,nums,dp)>=0;
     }
 
 }

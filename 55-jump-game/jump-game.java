@@ -11,15 +11,13 @@ class Solution {
 
         for (int i = 1; i <= nums[st]; i++) {
 
-            int jump = st + i;
+            
 
-            if (jump <= end) {
-
-                if (helper(jump, end, nums, dp)) {
+                if (helper(st+i, end, nums, dp)) {
                     dp[st] = 1;
                     return true;
                 }
-            }
+            
         }
 
         dp[st] = -1;

@@ -4,8 +4,7 @@ class Solution {
         int sum=0;
         int product=1;
         while(n>0){
-            int single=n%10;
-            
+            int single=n%10;            
             sum+=single;
             product=product*single;
             n=n/10;

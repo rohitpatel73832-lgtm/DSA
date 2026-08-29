@@ -20,7 +20,7 @@ class Solution {
     public long maxRunTime(int n, int[] batteries) {
 
         long l = 0;
-        long r = sumFind(batteries) / n;
+        long r = sumFind(batteries) ;
 
         long ans = 0;
 

@@ -6,6 +6,9 @@ class Solution {
 
         while(q.size()>0){
             int front= q.remove();
+            if (front == destination) {
+                return;
+            }
 
             for(int ele: adj.get(front)){
                 if(!vis[ele]){

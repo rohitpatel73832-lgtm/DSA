@@ -9,7 +9,8 @@ class Solution {
         int ans=0;
         for(int i=0; i<n; i++){
             if(diff[i]>additionalRocks) {
-                break;
+               // break;
+               return ans;
             }
             else{
                 additionalRocks=additionalRocks-diff[i];

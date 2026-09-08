@@ -23,8 +23,10 @@ class Solution {
                 score=sum*len;
                 
             }
+            if(score<k){
+                count+=r-l+1;
+            }
             
-            count+=r-l+1;
             r++;
 
         }

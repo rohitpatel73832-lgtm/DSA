@@ -1,4 +1,12 @@
 class Solution {
+    public void dfs(int st,List<List<Integer>> rooms,boolean[] visited){
+        visited[st]=true;
+        for(int ele: rooms.get(st)){
+                if(visited[ele]==false){
+                    dfs(ele,rooms,visited);
+                }
+            }
+    }
     public void bfs(int st,List<List<Integer>> rooms,boolean[] visited){
         Queue<Integer> q= new LinkedList<>();
         q.add(st);
@@ -18,7 +26,8 @@ class Solution {
     public boolean canVisitAllRooms(List<List<Integer>> rooms) {
         int n=rooms.size();
         boolean[] visited= new boolean[n];
-        bfs(0,rooms,visited);
+        // bfs(0,rooms,visited);
+        dfs(0,rooms,visited);
         for(int i=0; i<n; i++){
             if(visited[i]==false) return false;
         }

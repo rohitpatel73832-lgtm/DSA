@@ -73,11 +73,7 @@ class Solution {
         int r = k;
 
         while (r < n) {
-
-            // If old maximum is still inside the window
             if (maxIdx >= l && maxIdx <= r) {
-
-                // New element is bigger
                 if (nums[r] > nums[maxIdx]) {
                     max = nums[r];
                     maxIdx = r;
@@ -86,8 +82,6 @@ class Solution {
                 }
 
             } else {
-
-                // Old maximum is outside the window
                 max = Integer.MIN_VALUE;
 
                 for (int i = l; i <= r; i++) {

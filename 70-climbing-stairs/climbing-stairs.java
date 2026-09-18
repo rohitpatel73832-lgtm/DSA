@@ -1,17 +1,21 @@
 class Solution {
-    public int helper(int st,int n,int[] dp){
-        if(st==n){
+    public int helper(int n,int[] dp){
+        if(n==0 || n==1){
             return 1;
         }
-        if(st>n) return 0;
-        if(dp[st]!=-1) return dp[st];
-        int take=helper(st+1,n,dp);
-        int skipOneStair=helper(st+2,n,dp);
-        return dp[st]=take+skipOneStair;
+        if(dp[n]!=0){
+            return dp[n];
+        }
+
+        int take=helper(n-1,dp);
+        int skipOneStair=helper(n-2,dp);
+
+        return dp[n]= take+skipOneStair;
     }
     public int climbStairs(int n) {
-        int[] dp= new int[n];
-        Arrays.fill(dp,-1);
-       return helper(0,n,dp);
+        int[] dp= new int[n+1];
+        
+        return helper(n,dp);
+        
     }
 }

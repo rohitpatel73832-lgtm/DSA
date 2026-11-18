@@ -11,8 +11,6 @@ class Solution {
 
         for (int i = 1; i <= nums[st]; i++) {
 
-            
-
                 if (helper(st+i, end, nums, dp)) {
                     dp[st] = 1;
                     return true;
